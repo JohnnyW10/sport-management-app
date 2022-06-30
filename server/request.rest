@@ -1,0 +1,17 @@
+GET http://localhost:5000/users
+
+###
+
+POST http://localhost:5000/users/new
+Content-Type: application/json
+
+{
+  "login": "JanWolan",
+  "password": "haslo",
+  "mail": "mail@m.com",
+  "role": "Pan Piłkarz"
+}
+
+###
+
+DELETE  http://localhost:5000/users/delete/62be112e1aeea0ebe6c93a7b
