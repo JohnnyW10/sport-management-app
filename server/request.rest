@@ -6,12 +6,12 @@ POST http://localhost:5000/users/new
 Content-Type: application/json
 
 {
-  "login": "JanWolan",
-  "password": "haslo",
+  "login": "Adam",
+  "password": "1234",
   "mail": "mail@m.com",
-  "role": "Pan Piłkarz"
+  "role": "Szefu"
 }
 
 ###
 
-DELETE  http://localhost:5000/users/delete/62be112e1aeea0ebe6c93a7b
+DELETE  http://localhost:5000/users/delete/62be117f825346329c617b42
