@@ -1,0 +1,33 @@
+header {
+  margin: 0;
+  background: #013f47;
+}
+
+header button {
+  margin: 5px;
+  text-align: left;
+  padding: 10px;
+  color: white;
+  background-color: rgba(253, 253, 253, 0);
+  font-size: 2em;
+  font-weight: 700;
+  padding: 15px;
+  border: none;
+  border-radius: 30%;
+  cursor: pointer;
+  overflow: hidden;
+  border-bottom: 5px solid rgba(255, 255, 255, 0);
+}
+
+header button:hover {
+  animation: buttonAnimation 0.1s 0.05s linear both;
+}
+
+@keyframes buttonAnimation {
+  0% {
+    border-bottom: 5px solid rgba(255, 255, 255, 0);
+  }
+  100% {
+    border-bottom: 5px solid white;
+  }
+}

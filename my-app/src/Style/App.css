@@ -1,0 +1,46 @@
+.App {
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.aboutPage {
+  height: 90vh;
+  background: #013f47;
+  background: linear-gradient(45deg, #8fbc8b 2%, #00693e 15%, #013f47 50%);
+}
+
+.aboutPage .contentPage {
+  position: absolute;
+  top: 150px;
+  right: 200px;
+  width: 600px;
+  padding: 30px;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.aboutPage .contentPage h1 {
+  font-size: 60px;
+}
+
+.aboutPage .contentPage p {
+  font-size: 20px;
+}
+
+.aboutPage #mainImgMan {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+}
+
+.module {
+  height: 100vh;
+  padding-top: 50px;
+  background: #013f47;
+  background: linear-gradient(135deg, #8fbc8b 2%, #00693e 15%, #013f47 50%);
+}
