@@ -1,6 +1,10 @@
 header {
   margin: 0;
   background: #013f47;
+  -webkit-box-shadow: 0px 4px 20px 10px #013238;
+  -moz-box-shadow: 0px 4px 20px 10px #013238;
+  box-shadow: 0px 4px 20px 10px #001e22, 0px 6px 22px 14px #013238;
+  position: relative;
 }
 
 header button {
@@ -15,8 +19,8 @@ header button {
   border: none;
   border-radius: 30%;
   cursor: pointer;
-  overflow: hidden;
   border-bottom: 5px solid rgba(255, 255, 255, 0);
+  background: #013f47;
 }
 
 header button:hover {
