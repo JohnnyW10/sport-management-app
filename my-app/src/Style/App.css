@@ -66,3 +66,7 @@ main .moduleBox div .module .icon {
   font-size: 60px;
   font-weight: 700;
 }
+
+footer {
+  color: black;
+}

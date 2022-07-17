@@ -1,8 +1,3 @@
-const randomNumbers = require('../JS/randomNumbers')
-
-test('check randomNumber function', () => {
-  expect(randomNumbers).not.toBeNull()
-})
 
 test('add 5 + 5 how much is it', () => {
   const data = {name: 'Jan'}
@@ -96,3 +91,14 @@ test('error check', () => {
   expect(() => errorExample()).toThrow();
   expect(() => errorExample()).toThrow(Error)
 })
+
+
+
+// testing asynchronous code 
+//Promises
+//Return a promise from your test, and Jest will wait for that promise to resolve. If the promise is rejected, the test will fail.
+/*test('the data is peanut butter', () => {
+  return fetchData().then(data => {
+    expect(data).toBe('peanut butter');
+  });
+});*/
