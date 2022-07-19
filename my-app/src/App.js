@@ -5,6 +5,7 @@ import './Style/header.css'
 import ManPng from './Images/man.png'
 import { BsFillPersonPlusFill, BsFillPersonFill, BsJustify, BsCalendarCheck, BsCashCoin, BsShieldPlus, BsPeopleFill, BsClipboardData } from "react-icons/bs";
 import OwnHook from './components/ownHook'
+import PersonLibrary from './components/personLibrary';
 
 //const API_BASE = 'http://localhost:5000/users'
 
@@ -57,7 +58,7 @@ export default function App() {
       </header>
 
       <main>
-      <section class='aboutPage'>
+      <section className='aboutPage'>
         <div className='contentPage'>
           <h1>Aplikacja do zarządzania klubem sportowym</h1>
           <p id='to'>Jesteśmy doskonałym rozwiązaniem aby wnieść wasz klub na wyższy poziom i zadbać o wasz rozwój i możliwość konkurowania z czołowymi klubami w całej Polsce !</p>
@@ -65,7 +66,7 @@ export default function App() {
         <img id='mainImgMan' src={ManPng} width='500px' height='500px' alt='Young man which show hand with thumb to the top - like'/>
       </section>
 
-      <section class='moduleBox'>
+      <section className='moduleBox'>
         <h2>Dostępne moduły: </h2>
         <div>
         {moduls.map(el => {
@@ -80,6 +81,7 @@ export default function App() {
       </main>
       <footer>
         <OwnHook />
+        <PersonLibrary />
       </footer>
     </div>
   );
