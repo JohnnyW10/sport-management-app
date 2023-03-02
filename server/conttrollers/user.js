@@ -20,3 +20,26 @@ export const createUser = async (req, res) => {
     res.status(409).json({message: error.message})
   }
 }
+
+export const deleteUser = async (req, res) => {
+  const userID = req.body
+
+  try {
+    const user = await UserAccount.deleteOne(userID);
+    res.status(201).json(user)
+  } catch (error) {
+    res.status(409).json({message: error.message})
+  }
+}
+
+export const editUser = async (req, res) => {
+  const editUser = req.body.user;
+  const userID = req.body.id;
+
+  try {
+    const user = await UserAccount.updateOne({_id: userID}, editUser);
+    res.status(201).json(user)
+  } catch (error) {
+    res.status(409).json({message: error.message})
+  }
+} 

@@ -2,9 +2,8 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import Navigation from '../components/Navigation/Navigation';
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { createUser } from "../actions/users";
+import { createClub } from "../actions/club";
 
 const RegisterContainer = styled.div`
   color: white;
@@ -50,16 +49,6 @@ const ContentContainer = styled.div`
       }
     }
 
-    select {
-      width: 200px;
-      text-align: center;
-      margin: auto;
-      display: block;
-      border-radius: 10px;
-      line-height: 1.2rem;
-      margin-bottom: 20px;
-    }
-
     button {
       padding: 5px 20px;
       border-radius: 10px;
@@ -69,25 +58,20 @@ const ContentContainer = styled.div`
   }
 `
 
-export default function Register() {
-  const [user, setUser] = useState({
+export default function RegisterClub() {
+  const [newClub, setClub] = useState({
     name: '',
-    surname: '',
     login: '',
-    role: '',
-    clubID: '',
     password: '',
-    status: '',
-    bankAccount: '',
-    salary: '',
+    clubID: '',
+    adres: '',
   })
 
   const dispatch = useDispatch()
 
   const handleChange = (event) => {
-    giveID()
     const {name, value } = event.target
-    setUser((prevState) => {
+    setClub((prevState) => {
       return {
         ...prevState,
         [name]: value,
@@ -97,42 +81,23 @@ export default function Register() {
 
   const getNewUSer = (event) => {
     event.preventDefault()
-    dispatch(createUser(user))
-    console.log(user)
-  }
-
-  const users = useSelector((state) => state.users)
-
-  const giveID = () => {
-    if(users.length === 0 || users[users.length - 1].id === 0) {
-      setUser({id: '1'})
-    } else {
-      setUser({id: users[users.length - 1].id + 1})
-    }
+    dispatch(createClub(newClub))
   }
 
   return (
     <RegisterContainer>
-      <Navigation type={'User'}/>
+      <Navigation type={'Admin'}/>
       <ContentContainer>
-        <h1>Rejestracja</h1>
+        <h1>Rejestracja klubu</h1>
         <form onSubmit={getNewUSer}>
-          <label>Imie: <input name='name' onChange={handleChange} type="text" required placeholder="Imie"/></label>
-          <label>Nazwisko: <input name='surname' onChange={handleChange} type="text" required placeholder="Nazwisko"/></label>
+          <label>Nazwa Klubu: <input name='name' onChange={handleChange} type="text" required placeholder="Nazwa"/></label>
           <label>Login: <input name='login' onChange={handleChange} type="text" required placeholder="Login"/></label>
-          <label>Rola: <input name='role' onChange={handleChange} type="text" required placeholder="Rola"/></label>
-          <label>Hasło: <input name='password' onChange={handleChange} type="password" required placeholder="Hasło"/></label>
-          <label>Status: 
-            <select name='status' onChange={handleChange}>
-              <option>Aktywny</option>
-              <option>Nieaktywny</option>
-            </select>
-          </label>
+          <label>Hasło klubu: <input name='password' onChange={handleChange} type="password" required placeholder="Hasło"/></label>
+          <label>ID klubu: <input name='clubID' onChange={handleChange} type="text" required placeholder="Kod klubu"/></label>
+          <label>Adres: <input name='adres' onChange={handleChange} type="text" required placeholder="Adres"/></label>
           <button>Rejestracja</button>
         </form>
       </ContentContainer>
     </RegisterContainer>
   )
 }
-
-//<label>Login: <input name='mail' onChange={handleChange} type="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="To musi być prawdy mail!" required placeholder="Mail"/></label>

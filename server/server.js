@@ -4,6 +4,11 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 
 import userRoutes from './routes/users.js'
+import clubRoutes from './routes/club.js'
+import financeRoutes from './routes/finance.js'
+import magazineRoutes from './routes/magazine.js'
+import injuryRoutes from './routes/injury.js'
+import scheduleRoutes from './routes/schedule.js'
 
 const app = express();
 
@@ -12,6 +17,11 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }))
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 app.use(cors());  // Calling use(cors()) will enable the express server to respond to preflight requests.
 app.use('/users', userRoutes)
+app.use('/clubs', clubRoutes)
+app.use('/finance', financeRoutes)
+app.use('/magazine', magazineRoutes)
+app.use('/injury', injuryRoutes)
+app.use('/schedule', scheduleRoutes)
 const PORT = process.env.PORT || 5000
 
 mongoose.connect("mongodb+srv://johnnyw:haslo@zks-app.0yevc.mongodb.net/?retryWrites=true&w=majority", ({

@@ -5,9 +5,10 @@ const userSchema = mongoose.Schema({
   surname: String,
   login: String,
   password: String,
-  id: String,
+  clubID: String,
   role: String,
-  birthDate: String,
+  bankAccount: String,
+  status: String,
   salary: String,
 });
 

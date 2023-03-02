@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Navigation from '../components/Navigation/Navigation';
+import {Link} from 'react-router-dom'
 
 const LoginContainer = styled.div`
   color: white;
@@ -50,9 +51,10 @@ const ContentContainer = styled.div`
 `
 
 export default function Login() {
+  let isAdmin = true
   return (
     <LoginContainer>
-      <Navigation />
+      <Navigation type={'Home'}/>
       <ContentContainer>
         <h1>Logowanie</h1>
         <form>
@@ -60,7 +62,7 @@ export default function Login() {
           <input type="text"/>
           <label>Hasło: </label>
           <input type="password"/>
-          <button>Zaloguj się</button>
+          {isAdmin ? <Link to="/admin"><button>Zaloguj się</button></Link> : <Link to="/user"><button>Zaloguj się</button></Link>}
         </form>
       </ContentContainer>
     </LoginContainer>

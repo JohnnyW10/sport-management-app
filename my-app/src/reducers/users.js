@@ -5,7 +5,9 @@ export default (state = [], actions) => {
     case 'FETCH_ALL': 
       return actions.payload;
     case 'CREATE': 
-      return [...UsersArrayView, actions.payload];
+      return [UsersArrayView, actions.payload];
+    case 'Edit_User':
+      return [...state, actions.payload];
     default:
       return state;
   }

@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { BsFillPersonPlusFill, BsFillPersonFill, BsJustify} from "react-icons/bs";
+import { AiFillHome } from "react-icons/ai";
+import { IoIosFootball } from "react-icons/io";
 import {Link} from 'react-router-dom'
 import styled from "styled-components";
 
@@ -46,27 +48,50 @@ const MenuShadow = styled.div`
   background: rgb(0, 0, 0, 0.7);
 `
 
-export default function Navigation() {
+export default function NavMain({ type }) {
   let [isOpen, setOpen] = useState(() => false)
 
-  return (
-    <header className="App-header">
-      <Link to="/"><button title='Main'>SCM</button></Link>
-      <Link to="/register"><button title='Register'><BsFillPersonPlusFill/></button></Link>
-      <Link to="/login"><button title='Log in'><BsFillPersonFill /></button></Link>
-      {isOpen ? (
-      <MenuShadow>
-        <Menu>
-          <CloseButton onClick={() => setOpen(isOpen = !isOpen)}>X</CloseButton>
-          <Link to="/Finance"><button>Finanse</button></Link>
-          <Link to="/Grafik"><button>Grafik</button></Link>
-          <Link to="/Users"><button>Zarządzania personelem</button></Link>
-          <Link to="/Magazyn"><button>Magazynowy</button></Link>
-          <Link to="/Medyczny"><button>Moduł medyczny</button></Link>
-        </Menu>
-      </MenuShadow>
-      ) : ''}
-      <button title='Menu' onClick={() => setOpen(isOpen = !isOpen)}><BsJustify /></button>
-    </header>
-  )
+  const Nav = () => {
+    switch(type) {
+      case 'Home':
+        return(
+          <header className="App-header">
+            <Link to="/"><button title='Main'><AiFillHome /></button></Link>
+            <Link to="/login"><button title='Zaloguj się'><BsFillPersonFill /></button></Link>
+        </header>
+        )
+        case 'Admin':
+          return(
+            <header className="App-header">
+              <Link to="/admin"><button title='Main'><AiFillHome /></button></Link>
+              <Link to="/registerClub"><button title='Dodaj klub'><IoIosFootball/></button></Link>
+              <Link to="/registerPerson"><button title='Register'><BsFillPersonPlusFill/></button></Link>
+            </header>
+          )
+          case 'User':
+            return(
+              <header className="App-header">
+                <Link to="/user"><button title='Main'><AiFillHome /></button></Link>
+                <Link to="/registerPerson"><button title='Register'><BsFillPersonPlusFill/></button></Link>
+                {isOpen ? (
+                <MenuShadow>
+                  <Menu>
+                    <CloseButton onClick={() => setOpen(isOpen = !isOpen)}>X</CloseButton>
+                    <Link to="/Finance"><button>Finanse</button></Link>
+                    <Link to="/Grafik"><button>Grafik</button></Link>
+                    <Link to="/Users"><button>Zarządzania personelem</button></Link>
+                    <Link to="/Magazyn"><button>Magazynowy</button></Link>
+                    <Link to="/Medyczny"><button>Moduł medyczny</button></Link>
+                  </Menu>
+                </MenuShadow>
+                ) : ''}
+                <button title='Menu' onClick={() => setOpen(isOpen = !isOpen)}><BsJustify /></button>
+              </header>
+            )
+          default:
+            return(<></>)
+    }
+  }
+
+  return (<Nav />)
 }

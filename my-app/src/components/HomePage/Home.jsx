@@ -82,7 +82,7 @@ export default function Home() {
 
   return (
   <>
-    <Navigation />
+    <Navigation type={'Home'}/>
     <main>
       <section className='aboutPage'>
         <div className='contentPage'>
